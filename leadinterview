@@ -1,0 +1,98 @@
+Here are some interview questions based on the points in your notes, along with strong answers tailored for a Tech Lead role:
+
+1. How will you ensure a Health Backlog is created?
+
+Answer:
+A healthy backlog should be well-prioritized, refined, and aligned with business goals. To ensure this:
+	•	I will collaborate with the Product Owner (PO) and Scrum Master (SC) to regularly refine backlog items.
+	•	Prioritize based on business impact, dependencies, and team capacity.
+	•	Ensure each item has clear acceptance criteria, estimates, and dependencies documented.
+	•	Maintain a balance between feature development, technical debt reduction, and bug fixes.
+
+2. How will you improve team collaboration and avoid conflicts?
+
+Answer:
+To improve team collaboration and minimize conflicts:
+	•	Clearly define roles and responsibilities so that each team member knows their contribution.
+	•	Encourage open communication using stand-ups, retrospectives, and one-on-one discussions.
+	•	Foster a blame-free environment where issues are addressed constructively.
+	•	Promote knowledge sharing through documentation and pair programming.
+	•	Use tools like JIRA, Confluence, and Slack to keep everyone aligned.
+
+3. How do you ensure a good work-life balance for the team?
+
+Answer:
+	•	Avoid unrealistic sprint commitments by estimating tasks accurately.
+	•	Ensure that workload is evenly distributed based on individual strengths.
+	•	Set clear boundaries to minimize after-hours work.
+	•	Promote a supportive team culture, allowing flexibility when needed.
+	•	Encourage automation of repetitive tasks to reduce manual effort.
+
+4. How do you prioritize tasks before starting a sprint?
+
+Answer:
+	•	I will work with the PO & SC to summarize the work based on business priorities.
+	•	Break down large user stories into smaller, manageable tasks.
+	•	Consider factors like dependencies, team capacity, and risk.
+	•	Ensure that each item is properly estimated using techniques like Fibonacci sequence or T-shirt sizing.
+	•	Balance new features, bug fixes, and tech debt to maintain a sustainable pace.
+
+5. How do you ensure each team member gets work suited to their capability?
+
+Answer:
+	•	Assess individual strengths and assign tasks accordingly.
+	•	Provide mentorship and training for areas where team members need improvement.
+	•	Conduct regular 1:1s to understand challenges and career growth aspirations.
+	•	Encourage cross-skilling to avoid dependency on a single person.
+
+6. How do you estimate work effectively?
+
+Answer:
+	•	Break down the work into smaller, well-defined tasks.
+	•	Use historical data and past sprint velocity for reference.
+	•	Collaborate with the team in planning poker sessions for consensus-based estimation.
+	•	Identify unknowns early and allocate buffer time for potential blockers.
+	•	Regularly revisit and refine estimates based on execution feedback.
+
+7. What is the role you expect in this position?
+
+Answer:
+I see myself as a Tech Lead who:
+	•	Guides the team technically by making key architecture and design decisions.
+	•	Ensures smooth project execution by addressing bottlenecks and risks proactively.
+	•	Fosters team collaboration and ensures everyone is aligned towards sprint goals.
+	•	Acts as a bridge between developers, management, and business stakeholders.
+	•	Drives innovation by encouraging POCs, code quality improvements, and best practices.
+
+8. How do you handle project initiation and execution?
+
+Answer:
+	•	Before starting a project:
+	•	Understand business requirements and technical constraints.
+	•	Identify potential risks and dependencies.
+	•	Define architecture and high-level design.
+	•	Set up required cloud infrastructure and CI/CD pipelines.
+	•	During execution:
+	•	Conduct regular code reviews for quality assurance.
+	•	Monitor sprint progress and address blockers.
+	•	Ensure proper documentation and knowledge transfer.
+
+9. How do you handle team learning and growth?
+
+Answer:
+	•	Conduct tech talks and hands-on sessions on new tools and technologies.
+	•	Assign mentorship roles for knowledge sharing.
+	•	Encourage participation in hackathons and POCs.
+	•	Recommend certifications and training programs aligned with project needs.
+	•	Foster a culture of continuous improvement through retrospectives and feedback sessions.
+
+10. How do you ensure a conflict-free work environment?
+
+Answer:
+	•	Set clear expectations and responsibilities.
+	•	Encourage open discussions and resolve conflicts through constructive dialogue.
+	•	Mediate disputes by focusing on facts, not emotions.
+	•	Maintain transparency in decision-making to avoid misunderstandings.
+	•	Foster a collaborative mindset, ensuring everyone works towards a common goal.
+
+Would you like me to refine any answers further based on your specific experience?
