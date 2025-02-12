@@ -1,0 +1,79 @@
+Here are the interview questions and answers tailored to your experience as a Java React Full-Stack Developer, Tech Lead, and Cloud Expert:
+
+1. How will you ensure a Health Backlog is created?
+	•	Work with PO & SC to refine and prioritize backlog items regularly.
+	•	Ensure each backlog item has clear acceptance criteria, estimates, and dependencies.
+	•	Balance between new feature development, technical debt, and bug fixes.
+	•	Leverage tools like JIRA to track and maintain backlog health.
+	•	Conduct backlog grooming sessions with the team to ensure clarity and alignment.
+
+2. How will you improve team collaboration and avoid conflicts?
+	•	Clearly define roles and responsibilities for each team member.
+	•	Encourage open communication through daily stand-ups and retrospectives.
+	•	Promote a blame-free culture where issues are addressed constructively.
+	•	Use tools like JIRA, Confluence, and Slack for seamless collaboration.
+	•	Encourage pair programming and knowledge sharing to reduce silos.
+
+3. How do you ensure a good work-life balance for the team?
+	•	Estimate work properly to avoid overcommitment in sprints.
+	•	Distribute workload evenly based on individual strengths.
+	•	Set clear boundaries to minimize after-hours work.
+	•	Encourage automation of repetitive tasks (e.g., CI/CD, infrastructure provisioning).
+	•	Foster a supportive team culture with flexibility when needed.
+
+4. How do you prioritize tasks before starting a sprint?
+	•	Collaborate with PO & SC to summarize and prioritize work.
+	•	Break down large user stories into smaller, manageable tasks.
+	•	Consider dependencies, team capacity, and risks.
+	•	Use techniques like planning poker or T-shirt sizing for estimation.
+	•	Balance work across new features, bug fixes, and tech debt resolution.
+
+5. How do you ensure each team member gets work suited to their capability?
+	•	Assess individual strengths and assign tasks accordingly.
+	•	Conduct 1:1 discussions to understand team members’ interests and growth areas.
+	•	Encourage cross-skilling in backend, frontend, and cloud to reduce dependencies.
+	•	Create an onboarding guide for new members to ramp up quickly.
+
+6. How do you estimate work effectively?
+	•	Break down tasks into smaller, well-defined stories.
+	•	Use historical data and past sprint velocity as a reference.
+	•	Conduct planning poker sessions to get consensus from the team.
+	•	Identify unknowns early and allocate buffer time for blockers.
+	•	Regularly revisit and refine estimates based on execution feedback.
+
+7. What is the role you expect in this position?
+	•	Lead the team in Java-React full-stack development, Kong APIM, and Terraform.
+	•	Provide technical guidance and mentorship to junior developers.
+	•	Ensure smooth project execution by resolving bottlenecks and risks.
+	•	Drive DevOps best practices, optimizing CI/CD pipelines and infrastructure.
+	•	Collaborate with stakeholders to align business needs with technical execution.
+
+8. How do you handle project initiation and execution?
+
+Before starting a project:
+	•	Understand business requirements and technical constraints.
+	•	Define architecture and high-level design.
+	•	Identify risks, dependencies, and required cloud infrastructure.
+	•	Set up Terraform modules, CI/CD pipelines, and monitoring tools.
+
+During execution:
+	•	Conduct code reviews and enforce coding standards.
+	•	Monitor sprint progress and address blockers proactively.
+	•	Ensure proper documentation and knowledge transfer.
+	•	Optimize APIM layers (Kong) for performance and security.
+
+9. How do you handle team learning and growth?
+	•	Conduct tech talks on Java, React, Terraform, and APIM.
+	•	Assign mentorship roles for knowledge sharing.
+	•	Encourage team members to contribute to POCs and innovation projects.
+	•	Recommend AWS certifications and cloud training programs.
+	•	Foster a culture of continuous learning through retrospectives.
+
+10. How do you ensure a conflict-free work environment?
+	•	Set clear roles and responsibilities for each member.
+	•	Encourage open discussions and resolve conflicts constructively.
+	•	Maintain transparency in decision-making to avoid misunderstandings.
+	•	Promote team collaboration over individual competition.
+	•	Ensure everyone works towards a common goal with clear priorities.
+
+This format directly relates the questions to your expertise. Would you like any refinements or additions?
