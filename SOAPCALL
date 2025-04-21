@@ -1,0 +1,259 @@
+@Bean
+public Wss4jSecurityInterceptor securityInterceptor() {
+    Wss4jSecurityInterceptor interceptor = new Wss4jSecurityInterceptor();
+    interceptor.setSecurementActions("UsernameToken");
+    interceptor.setSecurementUsername("SOA_BAT_TEST");
+    interceptor.setSecurementPassword("dspbatl");
+    interceptor.setSecurementPasswordType(WSConstants.PW_TEXT);
+    return interceptor;
+}
+
+TXLife txLife = new TXLife();
+txLife.setVersion("2.18.02");
+
+// 1. Auth
+UserAuthRequest auth = new UserAuthRequest();
+auth.setUserLoginName("MMU7886");
+txLife.setUserAuthRequest(auth);
+
+// 2. TXLifeRequest
+TXLifeRequest txRequest = new TXLifeRequest();
+txRequest.setTransRefGUID("1651984651");
+txRequest.setTransExeDate("2024-10-03");
+txRequest.setTransExeTime("10:27:56");
+
+// 3. OLIfE (nested structure)
+OLIfE olife = new OLIfE();
+Holding holding = new Holding();
+holding.setId("Holding_1");
+holding.setHoldingTypeCode("2");
+holding.setHoldingKey(new HoldingKey("CarrierAdminSystem"));
+
+Policy policy = new Policy();
+policy.setCarrierAdminSystem("VNTG1");
+policy.setPolNumber("HUP TEST4");
+
+ApplicationInfo appInfo = new ApplicationInfo();
+appInfo.setSignedDate("2024-05-08");
+policy.setApplicationInfo(appInfo);
+
+// Optional Extensions
+OLifEExtension ext = new OLifEExtension();
+ext.setVendorCode("132");
+ext.setExtensionCode("Policy");
+MMExtension mmExt = new MMExtension();
+ext.setMMExtension(mmExt);
+policy.setOLifEExtension(ext);
+
+holding.setPolicy(policy);
+olife.setHolding(holding);
+txRequest.setOLIfE(olife);
+
+// Final assembly
+txLife.setTXLifeRequest(txRequest);
+
+Object response = webServiceTemplate.marshalSendAndReceive(txLife);
+
+
+
+
+
+
+
+package com.example.soapclient;
+
+import com.example.soapclient.jaxb.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.ws.client.core.WebServiceTemplate;
+
+@Component
+public class SoapClient {
+
+    @Autowired
+    private WebServiceTemplate webServiceTemplate;
+
+    public void callSoapService() {
+        TXLife txLife = new TXLife();
+
+        UserAuthRequest authRequest = new UserAuthRequest();
+        authRequest.setUserLoginName("MMU7886");
+        txLife.setUserAuthRequest(authRequest);
+
+        TXLifeRequest txLifeRequest = new TXLifeRequest();
+        txLifeRequest.setTransRefGUID("1651984651");
+        txLifeRequest.setTransExeDate("2024-10-03");
+        txLifeRequest.setTransExeTime("10:27:56");
+
+        OLIfE olIfE = new OLIfE();
+        Holding holding = new Holding();
+        holding.setId("Holding_1");
+
+        HoldingKey holdingKey = new HoldingKey();
+        holdingKey.setSystemCode("CarrierAdminSystem");
+        holding.setHoldingKey(holdingKey);
+
+        HoldingTypeCode holdingTypeCode = new HoldingTypeCode();
+        holdingTypeCode.setTc("2");
+        holding.setHoldingTypeCode(holdingTypeCode);
+
+        Policy policy = new Policy();
+        policy.setCarrierAdminSystem("VNTG1");
+        policy.setPolNumber("HUP TEST4");
+
+        ApplicationInfo appInfo = new ApplicationInfo();
+        appInfo.setSignedDate("2024-05-08");
+        policy.setApplicationInfo(appInfo);
+
+        OLifEExtension extension = new OLifEExtension();
+        extension.setVendorCode("132");
+        extension.setExtensionCode("Policy");
+        MMExtension mmExtension = new MMExtension();
+        extension.setMMExtension(mmExtension);
+        policy.setOLifEExtension(extension);
+
+        holding.setPolicy(policy);
+        olIfE.setHolding(holding);
+        txLifeRequest.setOLIfE(olIfE);
+        txLife.setTXLifeRequest(txLifeRequest);
+
+        Object response = webServiceTemplate.marshalSendAndReceive(txLife);
+        System.out.println("Response: " + response);
+    }
+}
+
+
+
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/soap")
+public class SoapController {
+
+    @Autowired
+    private SoapClient soapClient;
+
+    @PostMapping("/send")
+    public String sendSoapRequest(@RequestBody SoapRequestData requestData) {
+        soapClient.callSoapService(requestData);
+        return "SOAP request sent successfully.";
+    }
+}
+
+
+package com.example.soapclient;
+
+public class SoapRequestData {
+    private String userLoginName;
+    private String polNumber;
+    private String carrierAdminSystem;
+    private String signedDate;
+
+    public String getUserLoginName() {
+        return userLoginName;
+    }
+
+    public void setUserLoginName(String userLoginName) {
+        this.userLoginName = userLoginName;
+    }
+
+    public String getPolNumber() {
+        return polNumber;
+    }
+
+    public void setPolNumber(String polNumber) {
+        this.polNumber = polNumber;
+    }
+
+    public String getCarrierAdminSystem() {
+        return carrierAdminSystem;
+    }
+
+    public void setCarrierAdminSystem(String carrierAdminSystem) {
+        this.carrierAdminSystem = carrierAdminSystem;
+    }
+
+    public String getSignedDate() {
+        return signedDate;
+    }
+
+    public void setSignedDate(String signedDate) {
+        this.signedDate = signedDate;
+    }
+}
+
+
+
+package com.example.soapclient;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@SpringBootApplication
+public class TxLifeSoapClientApplication implements CommandLineRunner {
+
+    @Autowired
+    private SoapClient soapClient;
+
+    public static void main(String[] args) {
+        SpringApplication.run(TxLifeSoapClientApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) {
+        soapClient.callSoapService();
+    }
+}
+
+
+package com.example.soapclient;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import org.springframework.ws.client.core.WebServiceTemplate;
+import org.springframework.ws.soap.security.wss4j2.Wss4jSecurityInterceptor;
+import org.apache.wss4j.common.ext.WSPasswordCallback;
+import org.apache.wss4j.dom.handler.WSHandlerConstants;
+
+@Configuration
+public class WebServiceConfig {
+
+    @Bean
+    public Jaxb2Marshaller marshaller() {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("com.example.soapclient.jaxb");
+        return marshaller;
+    }
+
+    @Bean
+    public Wss4jSecurityInterceptor securityInterceptor() {
+        Wss4jSecurityInterceptor interceptor = new Wss4jSecurityInterceptor();
+        interceptor.setSecurementActions("UsernameToken");
+        interceptor.setSecurementUsername("SOA_BAT_TEST");
+        interceptor.setSecurementPassword("dspbatl");
+        interceptor.setSecurementPasswordType("PasswordText");
+        return interceptor;
+    }
+
+    @Bean
+    public WebServiceTemplate webServiceTemplate(Jaxb2Marshaller marshaller,
+                                                 Wss4jSecurityInterceptor securityInterceptor) {
+        WebServiceTemplate template = new WebServiceTemplate();
+        template.setMarshaller(marshaller);
+        template.setUnmarshaller(marshaller);
+        template.setDefaultUri("http://example.com/your-soap-endpoint"); // Change this to real endpoint
+        template.setInterceptors(new org.springframework.ws.client.support.interceptor.ClientInterceptor[]{securityInterceptor});
+        return template;
+    }
+}
+
+
+
+
